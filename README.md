@@ -4,7 +4,10 @@ This native Azuracast Player
 
 ### How to use
 
-Git this repo: ```git@github.com:PeWe79/native-azuracast-player.git```
+Git this repo:
+```bash
+git@github.com:PeWe79/native-azuracast-player.git
+```
 
 Edit ```index.html``` find and edit ```stations``` && upload to your server.
 
