@@ -4,7 +4,7 @@ This native Azuracast Player
 
 ### How to use
 
-Configuration is on ```index.html``` find and edit ```stations```
+Configuration is on ```index.html``` find and edit ```stations``` && upload to your server.
 
 ```bash
 stations: [
