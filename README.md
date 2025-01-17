@@ -2,6 +2,11 @@
 
 This native Azuracast Player
 
+## Demo Screenshots
+
+<img src="https://github.com/PeWe79/native-azuracast-player/blob/main/imgdoc/desktop.png" alt="1" width="800"/>
+<img src="https://github.com/PeWe79/native-azuracast-player/blob/main/imgdoc/mobile.png" alt="3" width="300"/>
+
 ### How to use
 
 Git this repo:
