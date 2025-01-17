@@ -4,7 +4,9 @@ This native Azuracast Player
 
 ### How to use
 
-Configuration is on ```index.html``` find and edit ```stations``` && upload to your server.
+Git this repo: ```git@github.com:PeWe79/native-azuracast-player.git```
+
+Edit ```index.html``` find and edit ```stations``` && upload to your server.
 
 ```bash
 stations: [
