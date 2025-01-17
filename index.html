@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,viewport-fit=cover">
+  <title>Web Radio Player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <meta name="theme-color" content="dark light">
+
+  <meta property="og:image" content="assets/img/logo.png" />
+  <meta property="og:image:type" content="assets/img/logo.png" />
+  <meta property="og:image:width" content="600" />
+  <meta property="og:image:height" content="360" />
+  <meta property="og:title" content="Web Radio Player" />
+  <meta property="og:description" content="" />
+  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
+
+  <link rel="stylesheet" href="assets/css/main.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <!-- <link href='manifest.json' rel='manifest' /> -->
+  <script>
+    window.streams = {
+      timeRefresh: 5000,
+      stations: [
+        {
+          name: "Delta FM",
+          hash: "delta_fm",
+          description: "",
+          albumArt: "assets/img/delta.png",
+          cover: "assets/img/delta.png",
+          logo: "assets/img/delta.png",
+          api: "https://s1.cloudmu.id/api/nowplaying/delta_fm",
+          stream_url: "https://s1.cloudmu.id/listen/delta_fm/radio.mp3",
+          server: "itunes",
+          program: {
+            time: "24/7",
+            name: "Delta FM",
+            description: "Cloudmu",
+          },
+          social: {}
+        },
+        {
+          name: "Female Radio",
+          hash: "female_radio",
+          description: "",
+          albumArt: "assets/img/female.png",
+          cover: "assets/img/female.png",
+          logo: "assets/img/female.png",
+          api: "https://s1.cloudmu.id/api/nowplaying/female_radio",
+          stream_url: "https://s1.cloudmu.id/listen/female_radio/radio.mp3",
+          server: "itunes",
+          program: {
+            time: "24/7",
+            name: "Female Radio",
+            description: "Cloudmu",
+          },
+          social: {}
+        },
+        {
+          name: "Bahana Fm",
+          hash: "bahana_fm",
+          description: "",
+          albumArt: "assets/img/bahana.png",
+          cover: "assets/img/bahana.png",
+          logo: "assets/img/bahana.png",
+          api: "https://s1.cloudmu.id/api/nowplaying/bahana",
+          stream_url: "https://s1.cloudmu.id/listen/bahana/radio.mp3",
+          server: "itunes",
+          program: {
+            time: "24/7",
+            name: "Bahana Fm",
+            description: "Cloudmu",
+          },
+          social: {}
+        }
+      ]
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/akira-expanded" rel="stylesheet">
+</head>
+
+<body class="preload">
+  <div class="app">
+    <img src="assets/img/logo.png" alt="cover" class="player-cover-image song-cover" height="100%" width="100%">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-wrapper flex justify-between">
+        <!-- logo -->
+        <a class="header-logo" href="">
+          <img class="header-logo-img" src="" alt="">
+        </a>
+        <!-- toggles -->
+        <div class="toggle-options flex items-start">
+          <div class="online-tv-header"></div>
+          <button class="btn l:none" data-outside="offcanvas-stations">
+            <svg class="i i-angles-down" viewBox="0 0 24 24">
+              <path d="m6 13 6 6 6-6M6 5l6 6 6-6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Cover -->
+    <div class="player-artwork player-artwork-style">
+      <img alt="artwork" height="600" src="assets/img/logo.png" width="600">
+      <div class="player-program"></div>
+    </div>
+
+    <!-- Player -->
+    <div class="player song-now flex column">
+
+      <div class="player-wrapper">
+        <!-- Cover -->
+        <div class="player-cover flex items-center justify-center g-2 items-center">
+          <div class="player-left flex items-center">
+            <!-- Cover -->
+            <div class="player-artwork-style relative">
+              <img class="player-artwork-mini" alt="artwork" height="600" src="assets/img/logo.png" width="600">
+            </div>
+            <!-- Data -->
+            <div class="player-cover-title uppercase fw-700 flex column">
+              <span class="color-title fw-700 song-name song-title station-name">Song</span>
+              <span class="color-title fs-8 song-artist station-description truncate">Artist</span>
+            </div>
+            <!-- Social -->
+            <div class="player-social flex wrap"></div>
+          </div>
+          <!-- Controllers -->
+          <div class="player-controller">
+            <!-- Change station -->
+            <button class="player-button player-button-backward-step">
+              <svg class="i i-backward-step" viewBox="0 0 24 24">
+                <path d="M6 5v14M18 4v16L8 12Z"></path>
+              </svg>
+            </button>
+            <!-- Play/Pause -->
+            <button aria-label="Play/Pause" class="player-button player-button-play flex-none">
+              <svg class="i i-play" viewBox="0 0 24 24">
+                <path d="m7 3 14 9-14 9z"></path>
+              </svg>
+            </button>
+            <!-- Change station forward -->
+            <button class="player-button player-button-forward-step">
+              <svg class="i i-forward-step" viewBox="0 0 24 24">
+                <path d="M18 5v14M6 4v16l10-8Z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="player-right flex items-center">
+            <!-- TV -->
+            <div class="online-tv"></div>
+            <!-- Historial -->
+            <button class="player-button player-button-history" data-outside="offcanvas-history">
+              <svg class="i i-music" viewBox="0 0 24 24">
+                <path d="M22 16V2L9 5v13"></path>
+                <circle cx="5" cy="18" r="4"></circle>
+                <circle cx="18" cy="16" r="4"></circle>
+              </svg>
+              History
+            </button>
+            <!-- Volume -->
+            <div class="player-button player-button-volume">
+              <button class="player-button player-button-volume-toggle" data-outside="player-volume">
+                <svg class="i i-volume-high" viewBox="0 0 24 24">
+                  <path d="M6 9H2v6h4l5 4V5Zm9 7a5 5 0 0 0 0-8m3 12a10 10 0 0 0 0-16"></path>
+                </svg>
+                Volume
+              </button>
+              <div class="dropdown" id="player-volume">
+                <div class="player-range-wrapper">
+                  <input aria-label="Volume" class="player-volume" max="100" min="0" name="player" type="range"
+                    value="100">
+                  <div class="player-range-fill"></div>
+                  <div class="player-range-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Multiradio -->
+            <button class="player-button-alt player-button-stations" data-outside="offcanvas-stations">
+              <svg class="i i-angles-up" viewBox="0 0 24 24">
+                <path d="m6 19 6-6 6 6M6 11l6-6 6 6"></path>
+              </svg>
+              RADIO
+            </button>
+
+            <div class="player-station player-artwork-style relative">
+              <img alt="artwork" height="600" src="assets/img/logo.png" width="600">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visualizer -->
+    <div class="visualizer" data-bars="80"></div>
+
+    <!-- Seasons -->
+    <aside class="offcanvas scrollbar" id="offcanvas-stations">
+      <div class="offcanvas-content">
+        <div class="stations flex g-1" id="stations"></div>
+      </div>
+    </aside>
+
+    <!-- Latest songs -->
+    <aside class="offcanvas scrollbar" id="offcanvas-history">
+      <div class="offcanvas-content">
+        <div class="history flex g-0.5 fs-7" id="history"></div>
+      </div>
+    </aside>
+
+    <div class="modal-video" id="modal-tv">
+      <button data-close aria-label="close" class="btn">
+        <svg class="i i-xmark" viewBox="0 0 24 24">
+          <path d="M18 6 6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+      <div class="modal-body-video"></div>
+    </div>
+
+    <div class="modal-overlay"></div>
+
+  </div>
+</body>
+
+</html>
